@@ -33,6 +33,7 @@ while True:
 
             if os.path.isabs(result_location):
                 files_dict: dict = {}
+                all_files_list: list = []
 
                 date = datetime.datetime.today()
 
@@ -69,7 +70,12 @@ while True:
 
                                     files_dict[extension] += [each_file_dict]
 
-                                    shutil.copy(f'{folder_name}\\{file}', f'{result_location}\\result_{date.year}-{date.month}-{date.day}-{date.hour}-{date.minute}\\{extension}')
+                                    if file not in all_files_list:
+                                        all_files_list.append(file)
+                                        files_dict[extension] += [each_file_dict]
+                                        shutil.copy(f'{folder_name}\\{file}', f'{result_location}\\result_{date.year}-{date.month}-{date.day}-{date.hour}-{date.minute}\\{extension}')
+
+
 
                     os.chdir(f'{result_location}\\result_{date.year}-{date.month}-{date.day}-{date.hour}-{date.minute}')
 
