@@ -1,0 +1,4 @@
+This is a file manager that searches for files with extension written by user in directory written by user, too. Results of search will be contained in directory written by user.
+The program takes following commands:
+	1) 0 - quit currently working program and break cycle;
+	2) 1 - continue currently working program
