@@ -53,10 +53,21 @@ while True:
                         for file in filenames:
                             for extension in files_extensions_list:
                                 if file.endswith(extension):
+
+                                    each_file_dict: dict = {
+                                        'Filename': '',
+                                        'Location': '',
+                                        'Size(bytes)': ''
+                                    }
+
                                     file_location = f'{folder_name}\\{file}'
                                     file_size = os.path.getsize(file_location)
 
-                                    files_dict[extension] += [file]
+                                    each_file_dict['Filename'] = file
+                                    each_file_dict['Location'] = file_location
+                                    each_file_dict['Size(bytes)'] = file_size
+
+                                    files_dict[extension] += [each_file_dict]
 
                                     shutil.copy(f'{folder_name}\\{file}', f'{result_location}\\result_{date.year}-{date.month}-{date.day}-{date.hour}-{date.minute}\\{extension}')
 
